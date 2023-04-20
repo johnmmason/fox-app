@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+  {% for message in get_flashed_messages() %}
+    <div class="alert">{{ message }}</div>
+  {% endfor %}
+
+  <div class='content'>
+  <p>Congratulations, you found the fox!</p>
+    
+  <form method="post">
+    <label for="callsign">Type your callsign to be added to the log:</label>
+    <br>
+    <input type="text" name="callsign"
+	   placeholder="N5XU"
+	   value="{{ request.form['title'] }}"></input>
+    <br><br>
+    <button type="submit" value="Submit">Add me to the log!</button>
+  </form>
+  </div>
+{% endblock %}

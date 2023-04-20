@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <table id="data" class="table table-striped">
+    <thead>
+      <tr>
+        <th>Callsign</th>
+        <th>Name</th>
+        <th>Log Time</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for operator in operators %}
+        <tr>
+          <td>{{ operator.callsign }}</td>
+          <td>{{ operator.name }}</td>
+          <td>{{ operator.date.strftime("%m/%d/%Y, %H:%M") }}</td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+{% endblock %}
