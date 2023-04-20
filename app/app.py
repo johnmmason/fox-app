@@ -35,7 +35,7 @@ def check_log(callsign):
 @app.route('/')
 def index():
     operators = session.query(HamOperator).order_by(desc(HamOperator.date)).all()
-    return render_template('bootstrap_table.html', title='N5XU Fox', operators=operators)
+    return render_template('table.html', title='N5XU Fox', operators=operators)
 
 @app.route('/log', methods=('GET', 'POST'))
 def log():

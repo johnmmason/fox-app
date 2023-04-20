@@ -1,22 +1,30 @@
 {% extends "base.html" %}
 
 {% block content %}
-
-  {% for message in get_flashed_messages() %}
-    <div class="alert">{{ message }}</div>
-  {% endfor %}
-
   <div class='content'>
-  <p>Congratulations, you found the fox!</p>
+
+    <h2>What is this transmitter?</h2>
+
+    <p>This device is a low-powered radio transmitter for Amateur Radio Direction Finding (ARDF), also known as <a href="https://tamiamiarc.org/what-is-a-fox-hunt/">fox hunting</a>.
+      This device transmits on 144.565 MHz FM.  Amateur Radio Operators use specialized equipment to track and locate this device for training purposes.</p>
+
+    <p>This device is operated by the <a href="http://n5xu.org">UT Austin Amateur Radio Club</a>, callsign N5XU.  Please do not touch or remove this device.</p>
     
-  <form method="post">
-    <label for="callsign">Type your callsign to be added to the log:</label>
-    <br>
-    <input type="text" name="callsign"
-	   placeholder="N5XU"
-	   value="{{ request.form['title'] }}"></input>
-    <br><br>
-    <button type="submit" value="Submit">Add me to the log!</button>
-  </form>
+    <h2>Add me to the log!</h2>
+
+    {% for message in get_flashed_messages() %}
+    <div class="alert">{{ message }}</div>
+    {% endfor %}
+    
+    <form method="post">
+      <label for="callsign">Congratulations, you found the fox!  Type your callsign below to be added to the log:</label>
+      <br>
+      <input type="text" name="callsign"
+	     placeholder="N5XU"
+	     value="{{ request.form['title'] }}"></input>
+      <br><br>
+      <button type="submit" value="Submit">Add me to the log!</button>
+    </form>
+
   </div>
 {% endblock %}

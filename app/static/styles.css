@@ -5,21 +5,6 @@
     background-color: #ffd5de;
 }
 
-.title-text {
-    margin-top: 36px;
-}
-
-@media screen and (max-width: 992px) {
-    .title-text {
-	font-size: 80px;
-    }
-    .table-striped {
-	font-size: 36px;
-    }
-    .content {
-	font-size: 28px;
-    }
-    .container {
-	max-width: 980px;
-    }
+.container {
+    margin-top: 1vh;
 }
