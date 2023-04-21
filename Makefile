@@ -10,12 +10,13 @@ build :
 	docker build -t ${IMAGE} .
 
 run : build
-	docker run -dit ${DEVICE} --rm -p $(PORT):5000 --name ${NAME} ${IMAGE}
+	mkdir -p $(shell pwd)/db
+	docker run -dit ${DEVICE} --rm -p $(PORT):5000 --mount type=bind,source=$(shell pwd)/db,target=/app/db --name ${NAME} ${IMAGE}
 
 debug : build
-	docker run -it ${DEVICE} --rm -p $(PORT):5000 --name ${NAME} ${IMAGE}
+	mkdir -p $(shell pwd)/db
+	docker run -it ${DEVICE} --rm -p $(PORT):5000 --mount type=bind,source=$(shell pwd)/db,target=/app/db --name ${NAME} ${IMAGE}
 
-clean:
-	- docker rmi -f ${IMAGE}
-	- docker rm /${NAME}
-	- docker images --quiet --filter=dangling=true | xargs --no-run-if-empty docker rmi
+clean :
+	rm -rf $(shell pwd)/db
+	docker rmi -f ${IMAGE}

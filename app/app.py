@@ -9,7 +9,7 @@ app = Flask(__name__)
 app.config['SECRET_KEY'] = os.urandom(24).hex()
 Base = declarative_base()
 
-engine = create_engine('sqlite:///foxhunt.db')
+engine = create_engine('sqlite:///db/foxhunt.db')
 Session = sessionmaker(bind = engine)
 session = Session()
 
